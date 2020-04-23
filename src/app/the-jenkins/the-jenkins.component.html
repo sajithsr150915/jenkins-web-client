@@ -1,0 +1,278 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 50%;
+  text-align: left;
+  border-collapse: collapse;
+  margin-left: 100px;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<div> 
+
+
+<!-- total count -->
+<div style="margin-left: 100px; align:center">
+<h4><b>Build Count</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+            <th>Total Count</th>
+            <th>Sucess Count</th>
+			<th>Failure Count</th>
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr >
+            <td>{{jenkinsCount.totalCount}}</td>
+            <td>{{jenkinsCount.successCount}}</td>
+			<td>{{jenkinsCount.failureCount}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- total count PROD -->
+<div style="margin-left: 100px;">
+<h4><b>PROD Build Count</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+            <th>Total Count</th>
+            <th>Sucess Count</th>
+			<th>Failure Count</th>
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr >
+            <td>{{jenkinsCountPROD.totalCount}}</td>
+            <td>{{jenkinsCountPROD.successCount}}</td>
+			<td>{{jenkinsCountPROD.failureCount}}</td>
+        </tr>
+    </tbody>
+</table> 
+
+
+<!-- total count UAT -->
+<div style="margin-left: 100px;">
+<h4><b>UAT Build Count</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+            <th>Total Count</th>
+            <th>Sucess Count</th>
+			<th>Failure Count</th>
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr >
+            <td>{{jenkinsCountUAT.totalCount}}</td>
+            <td>{{jenkinsCountUAT.successCount}}</td>
+			<td>{{jenkinsCountUAT.failureCount}}</td>
+        </tr>
+    </tbody>
+</table> 
+
+
+<!--last PROD deployments-->
+<div style="margin-left: 100px;">
+<h4><b>Successful PROD Deployments</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+
+            <th>Job Name</th>
+            <th>lastSuccessfulRun timestamp</th>
+            <th>lastSuccessfulRun date</th>
+			<th>Build No</th>
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr *ngFor="let item of lastPRODDeploy">
+            <td>{{item.jobName}}</td>
+            <td>{{item.lastSuccessfulRun}}</td>
+            <td>{{item.successfulRunDate}}</td>
+			<td>{{item.buildNo}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!--last UAT deployments-->
+<div style="margin-left: 100px;">
+<h4><b>Successful UAT Deployments</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+
+            <th>Job Name</th>
+            <th>lastSuccessfulRun timestamp</th>
+            <th>lastSuccessfulRun date</th>
+			<th>Build No</th>
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr *ngFor="let item of lastUATDeploy">
+            <td>{{item.jobName}}</td>
+            <td>{{item.lastSuccessfulRun}}</td>
+            <td>{{item.successfulRunDate}}</td>
+			<td>{{item.buildNo}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div style="margin-left: 100px;">
+<h4><b>Acceptance Test Job</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+		    <th>Job Name</th>
+            <th>Total Count</th>
+            <th>Sucess Count</th>
+			<th>Failure Count</th>
+			<th>Skipped Count</th>
+
+        </tr>
+    </thead>
+	
+    <tbody>
+               <tr *ngFor="let acceptanceCount of acceptanceCountGroup">
+            <td>{{acceptanceCount.name}}</td>
+            <td>{{acceptanceCount.totalCount}}</td>
+            <td>{{acceptanceCount.successCount}}</td>
+			<td>{{acceptanceCount.failureCount}}</td>
+			<td>{{acceptanceCount.skippedCount}}</td>
+        </tr>
+    </tbody>
+</table> 
+
+
+
+<div style="margin-left: 100px;">
+<h4><b>Accptance Test Case Count</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+            <th>Total Count</th>
+            <th>Sucess Count</th>
+			<th>Failure Count</th>
+			<th>Skipped Count</th>
+
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr >
+            <td>{{acceptanceCount.totalCount}}</td>
+            <td>{{acceptanceCount.successCount}}</td>
+			<td>{{acceptanceCount.failureCount}}</td>
+			<td>{{acceptanceCount.skippedCount}}</td>
+        </tr>
+    </tbody>
+</table> 
+
+<!-- count by group -->
+
+
+
+<div style="margin-left: 100px;">
+<h4><b>Build Count of Projects</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+
+            <th>Job Name</th>
+            <th>Total Count</th>
+            <th>Sucess Count</th>
+			<th>Failure Count</th>
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr *ngFor="let item of jenkinsJob">
+            <td>{{item.jobname}}</td>
+            <td>{{item.totalCount}}</td>
+            <td>{{item.successCount}}</td>
+			<td>{{item.failureCount}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
