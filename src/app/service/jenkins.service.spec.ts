@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { JenkinsService } from './flights.service';
+import { JenkinsService } from './jenkins.service';
 
 describe('JenkinsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

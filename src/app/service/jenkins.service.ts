@@ -23,15 +23,26 @@ export class JenkinsService{
 
 
   // count data grouped by jenkins job
-  public getJenkinsDataGroup() : Observable<Jenkins[]>{
+  public getJenkinsDataGroup(days) : Observable<Jenkins[]>{
 	  let url = "http://localhost:8083/jenkinsJob/countGroupByJenkinsJob";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
+	  
 	this.http.get(url);	
 	return this.http.get<Jenkins[]>(url);
 }
 
   // count data of jenkins job
- public totalBuildCountJenkins() : Observable<Jenkins>{
+ public totalBuildCountJenkins(days) : Observable<Jenkins>{
 	  let url = "http://localhost:8083/jenkinsJob/totalBuildCountJenkins";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
 	this.http.get(url);	
 	return this.http.get<Jenkins>(url);
 }
@@ -39,40 +50,70 @@ export class JenkinsService{
 
 
 
-public totalBuildCountPROD() : Observable<Jenkins>{
+public totalBuildCountPROD(days) : Observable<Jenkins>{
 	  let url = "http://localhost:8083/jenkinsJob/totalBuildCountPROD";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
 	this.http.get(url);	
 	return this.http.get<Jenkins>(url);
 }
 
-public totalBuildCountUAT() : Observable<Jenkins>{
+public totalBuildCountUAT(days) : Observable<Jenkins>{
 	  let url = "http://localhost:8083/jenkinsJob/totalBuildCountUAT";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
 	this.http.get(url);	
 	return this.http.get<Jenkins>(url);
 }
 
 
 
-public lastPRODDeployments() : Observable<Jenkins[]>{
+public lastPRODDeployments(days) : Observable<Jenkins[]>{
 	  let url = "http://localhost:8083/jenkinsJob/lastPRODDeployments";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
 	this.http.get(url);	
 	return this.http.get<Jenkins[]>(url);
 }
 
- public lastUATDeployments() : Observable<Jenkins[]>{
+ public lastUATDeployments(days) : Observable<Jenkins[]>{
 	  let url = "http://localhost:8083/jenkinsJob/lastUATDeployments";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
 	this.http.get(url);	
 	return this.http.get<Jenkins[]>(url);
 } 
 
- public totalCountAcceptance() : Observable<Jenkins>{
+ public totalCountAcceptance(days) : Observable<Jenkins>{
 	  let url = "http://localhost:8083/jenkinsJob/totalCountAcceptance";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
 	this.http.get(url);	
 	return this.http.get<Jenkins>(url);
 } 
 
- public countGroupByAcceptancTest() : Observable<Jenkins[]>{
+ public countGroupByAcceptancTest(days) : Observable<Jenkins[]>{
 	  let url = "http://localhost:8083/jenkinsJob/countGroupByAcceptancTest";
+	  if(days.trim().length===0){
+	  }else{
+		  		  url=url+"/"+days;
+
+	  }
 	this.http.get(url);	
 	return this.http.get<Jenkins[]>(url);
 } 

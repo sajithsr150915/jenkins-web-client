@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { MyFlightsComponent } from './the-jenkins/the-jenkins.component';
 import { JenkinsService } from 'src/app/service/jenkins.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule,FormGroup} from '@angular/forms';
+import { LoaderService } from 'src/app/service/loader.service';
 
 
 
@@ -18,9 +20,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+	FormsModule,
+    ReactiveFormsModule
 	
   ],
-  providers: [JenkinsService],
+  providers: [JenkinsService,LoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

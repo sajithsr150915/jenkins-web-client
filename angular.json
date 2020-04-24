@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "airline-client-web"
+    }
+  },
+  "defaultProject": "airline-client-web",
+  "cli": {
+    "analytics": false
+  }
 }
