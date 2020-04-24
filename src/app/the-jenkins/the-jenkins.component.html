@@ -63,133 +63,24 @@ table.blueTable tfoot .links a{
 
 
 
-#loader .dot {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 87.5px;
-}
 
-#loader .dot::before {
-  border-radius: 100%;
-  content: "";
-  height: 87.5px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: scale(0);
-  width: 87.5px;
-}
-
-#loader .dot:nth-child(7n+1) {
-  transform: rotate(45deg);
-}
-
-#loader .dot:nth-child(7n+1)::before {
-  animation: 0.8s linear 0.1s normal none infinite running load;
-  background: #00ff80 none repeat scroll 0 0;
-}
-
-#loader .dot:nth-child(7n+2) {
-  transform: rotate(90deg);
-}
-
-#loader .dot:nth-child(7n+2)::before {
-  animation: 0.8s linear 0.2s normal none infinite running load;
-  background: #00ffea none repeat scroll 0 0;
-}
-
-#loader .dot:nth-child(7n+3) {
-  transform: rotate(135deg);
-}
-
-#loader .dot:nth-child(7n+3)::before {
-  animation: 0.8s linear 0.3s normal none infinite running load;
-  background: #00aaff none repeat scroll 0 0;
-}
-
-#loader .dot:nth-child(7n+4) {
-  transform: rotate(180deg);
-}
-
-#loader .dot:nth-child(7n+4)::before {
-  animation: 0.8s linear 0.4s normal none infinite running load;
-  background: #0040ff none repeat scroll 0 0;
-}
-
-#loader .dot:nth-child(7n+5) {
-  transform: rotate(225deg);
-}
-
-#loader .dot:nth-child(7n+5)::before {
-  animation: 0.8s linear 0.5s normal none infinite running load;
-  background: #2a00ff none repeat scroll 0 0;
-}
-
-#loader .dot:nth-child(7n+6) {
-  transform: rotate(270deg);
-}
-
-#loader .dot:nth-child(7n+6)::before {
-  animation: 0.8s linear 0.6s normal none infinite running load;
-  background: #9500ff none repeat scroll 0 0;
-}
-
-#loader .dot:nth-child(7n+7) {
-  transform: rotate(315deg);
-}
-
-#loader .dot:nth-child(7n+7)::before {
-  animation: 0.8s linear 0.7s normal none infinite running load;
-  background: magenta none repeat scroll 0 0;
-}
-
-#loader .dot:nth-child(7n+8) {
-  transform: rotate(360deg);
-}
-
-#loader .dot:nth-child(7n+8)::before {
-  animation: 0.8s linear 0.8s normal none infinite running load;
-  background: #ff0095 none repeat scroll 0 0;
-}
-
-#loader .loading {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  bottom: -40px;
-  height: 20px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  width: 180px;
-}
-
-
-.spinner-message {
-  text-align: center;
-}
 </style>
 </head>
 <body>
 <div > 
 
 
-<div>
+<div style="margin-left:100px;">
     <div class="row">
 
         <!-- Form -->
         <div class="col-md-12">
-            Enter the past number of days which you want to filter the data
+            
 			
            <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
-  <input type = "text" name = "days" placeholder = "Days" ngModel>
-  <br/>
-  <input type = "submit" value = "Send">
+ Enter the past number of days which you want to filter the data <input type = "text" name = "days" placeholder = "days" ngModel>
+
+  <input type = "submit" value = "Submit" style="margin-left:20px;">
 </form>
 
         </div>
@@ -199,7 +90,7 @@ table.blueTable tfoot .links a{
 
 
 
-
+<br>
 <!-- total count -->
 <div style="margin-left: 100px; align:center">
 <h4><b>Build Count</b></h4>
@@ -221,7 +112,7 @@ table.blueTable tfoot .links a{
         </tr>
     </tbody>
 </table>
-
+<br>
 <!-- total count PROD -->
 <div style="margin-left: 100px;">
 <h4><b>PROD Build Count</b></h4>
@@ -243,7 +134,7 @@ table.blueTable tfoot .links a{
         </tr>
     </tbody>
 </table> 
-
+<br>
 
 <!-- total count UAT -->
 <div style="margin-left: 100px;">
@@ -267,19 +158,19 @@ table.blueTable tfoot .links a{
     </tbody>
 </table> 
 
-
+<br>
 <!--last PROD deployments-->
 <div style="margin-left: 100px;">
-<h4><b>Successful PROD Deployments</b></h4>
+<h4><b>Last Successful PROD Deployments</b></h4>
 </div>
 <table class="blueTable" border="1" >
     <thead>
         <tr>
 
             <th>Job Name</th>
-            <th>lastSuccessfulRun timestamp</th>
-            <th>lastSuccessfulRun date</th>
-			<th>Build No</th>
+            <th>Run timestamp</th>
+            <th>Run date</th>
+			<th>Build No.</th>
         </tr>
     </thead>
 	
@@ -292,19 +183,19 @@ table.blueTable tfoot .links a{
         </tr>
     </tbody>
 </table>
-
+<br>
 <!--last UAT deployments-->
 <div style="margin-left: 100px;">
-<h4><b>Successful UAT Deployments</b></h4>
+<h4><b>Last Successful UAT Deployments</b></h4>
 </div>
 <table class="blueTable" border="1" >
     <thead>
         <tr>
 
-            <th>Job Name</th>
-            <th>lastSuccessfulRun timestamp</th>
-            <th>lastSuccessfulRun date</th>
-			<th>Build No</th>
+           <th>Job Name</th>
+            <th>Run timestamp</th>
+            <th>Run date</th>
+			<th>Build No.</th>
         </tr>
     </thead>
 	
@@ -317,8 +208,32 @@ table.blueTable tfoot .links a{
         </tr>
     </tbody>
 </table>
+<br>
+<div style="margin-left: 100px;">
+<h4><b>Accptance Test Case Count</b></h4>
+</div>
+<table class="blueTable" border="1" >
+    <thead>
+        <tr>
+            <th>Total Count</th>
+            <th>Sucess Count</th>
+			<th>Failure Count</th>
+			<th>Skipped Count</th>
 
+        </tr>
+    </thead>
+	
+    <tbody>
+        <tr >
+            <td>{{acceptanceCount.totalCount}}</td>
+            <td>{{acceptanceCount.successCount}}</td>
+			<td>{{acceptanceCount.failureCount}}</td>
+			<td>{{acceptanceCount.skippedCount}}</td>
+        </tr>
+    </tbody>
+</table> 
 
+<br>
 <div style="margin-left: 100px;">
 <h4><b>Acceptance Test Job</b></h4>
 </div>
@@ -345,38 +260,16 @@ table.blueTable tfoot .links a{
     </tbody>
 </table> 
 
+<br>
 
 
-<div style="margin-left: 100px;">
-<h4><b>Accptance Test Case Count</b></h4>
-</div>
-<table class="blueTable" border="1" >
-    <thead>
-        <tr>
-            <th>Total Count</th>
-            <th>Sucess Count</th>
-			<th>Failure Count</th>
-			<th>Skipped Count</th>
-
-        </tr>
-    </thead>
-	
-    <tbody>
-        <tr >
-            <td>{{acceptanceCount.totalCount}}</td>
-            <td>{{acceptanceCount.successCount}}</td>
-			<td>{{acceptanceCount.failureCount}}</td>
-			<td>{{acceptanceCount.skippedCount}}</td>
-        </tr>
-    </tbody>
-</table> 
 
 <!-- count by group -->
 
 
 
 <div style="margin-left: 100px;">
-<h4><b>Build Count of Projects</b></h4>
+<h4><b>Build Count of Jobs</b></h4>
 </div>
 <table class="blueTable" border="1" >
     <thead>
@@ -399,7 +292,7 @@ table.blueTable tfoot .links a{
     </tbody>
 </table>
 
-
+<br>
 
 
 
