@@ -2,6 +2,10 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
+
+.floatLeft { width: 50%; float: left; }
+.floatRight {width: 50%; float: right; }
+.containerdiv { overflow: hidden; }
 table.blueTable {
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
@@ -67,8 +71,13 @@ table.blueTable tfoot .links a{
 </style>
 </head>
 <body>
-<div > 
+<div  class="home-page"> 
 
+  <div >
+    <div >
+      <h1 style="margin-left:100px;">Jenkins Report</h1>
+    </div>
+  </div>
 
 <div style="margin-left:100px;">
     <div class="row">
@@ -78,11 +87,11 @@ table.blueTable tfoot .links a{
             
 			
            <form #myform = "ngForm" (ngSubmit) = "onSubmit(myform)" >
- Enter the past number of days which you want to filter the data <input type = "text" name = "days" placeholder = "days" ngModel>
+ Enter the number of days to filter the data : <input type = "text" style="width:55px;" value="30" name = "days" placeholder = "30" ngModel>
 
-  <input type = "submit" value = "Submit" style="margin-left:20px;">
+  <input type = "submit" value = "Submit" style="margin-left:20px;background-color: #1C6EA4;color:white">
 </form>
-
+                                 <i style="margin-left:230px;font-size:11px;"> *** by default the data of past 30 days are being shown</i>
         </div>
 
     </div>
@@ -92,10 +101,11 @@ table.blueTable tfoot .links a{
 
 <br>
 <!-- total count -->
+
 <div style="margin-left: 100px; align:center">
-<h4><b>Build Count</b></h4>
+<b>Build Count</b>
 </div>
-<table class="blueTable" border="1" >
+<table class="blueTable" border="1" style="width:30%;" >
     <thead>
         <tr>
             <th>Total Count</th>
@@ -113,11 +123,13 @@ table.blueTable tfoot .links a{
     </tbody>
 </table>
 <br>
+
 <!-- total count PROD -->
+
 <div style="margin-left: 100px;">
-<h4><b>PROD Build Count</b></h4>
+<b>PROD Build Count</b>
 </div>
-<table class="blueTable" border="1" >
+<table class="blueTable" border="1" style="width:30%;" >
     <thead>
         <tr>
             <th>Total Count</th>
@@ -137,10 +149,10 @@ table.blueTable tfoot .links a{
 <br>
 
 <!-- total count UAT -->
-<div style="margin-left: 100px;">
-<h4><b>UAT Build Count</b></h4>
+<div style="margin-left: 100px; ">
+<b>UAT Build Count</b>
 </div>
-<table class="blueTable" border="1" >
+<table class="blueTable" border="1" style="width:30%;" >
     <thead>
         <tr>
             <th>Total Count</th>
@@ -161,7 +173,7 @@ table.blueTable tfoot .links a{
 <br>
 <!--last PROD deployments-->
 <div style="margin-left: 100px;">
-<h4><b>Last Successful PROD Deployments</b></h4>
+<b>Last Successful PROD Deployments</b>
 </div>
 <table class="blueTable" border="1" >
     <thead>
@@ -171,6 +183,8 @@ table.blueTable tfoot .links a{
             <th>Run timestamp</th>
             <th>Run date</th>
 			<th>Build No.</th>
+			<th>Revision</th>
+
         </tr>
     </thead>
 	
@@ -180,13 +194,15 @@ table.blueTable tfoot .links a{
             <td>{{item.lastSuccessfulRun}}</td>
             <td>{{item.successfulRunDate}}</td>
 			<td>{{item.buildNo}}</td>
+			<td>{{item.revision}}</td>
+
         </tr>
     </tbody>
 </table>
 <br>
 <!--last UAT deployments-->
 <div style="margin-left: 100px;">
-<h4><b>Last Successful UAT Deployments</b></h4>
+<b>Last Successful UAT Deployments</b>
 </div>
 <table class="blueTable" border="1" >
     <thead>
@@ -196,6 +212,8 @@ table.blueTable tfoot .links a{
             <th>Run timestamp</th>
             <th>Run date</th>
 			<th>Build No.</th>
+			<th>Revision</th>
+
         </tr>
     </thead>
 	
@@ -205,14 +223,16 @@ table.blueTable tfoot .links a{
             <td>{{item.lastSuccessfulRun}}</td>
             <td>{{item.successfulRunDate}}</td>
 			<td>{{item.buildNo}}</td>
+		    <td>{{item.revision}}</td>
+
         </tr>
     </tbody>
 </table>
 <br>
 <div style="margin-left: 100px;">
-<h4><b>Accptance Test Case Count</b></h4>
+<b>Acceptance Test Case Count</b>
 </div>
-<table class="blueTable" border="1" >
+<table class="blueTable" border="1" style="width:40%;">
     <thead>
         <tr>
             <th>Total Count</th>
@@ -235,7 +255,7 @@ table.blueTable tfoot .links a{
 
 <br>
 <div style="margin-left: 100px;">
-<h4><b>Acceptance Test Job</b></h4>
+<b>Acceptance Test Job</b>
 </div>
 <table class="blueTable" border="1" >
     <thead>
@@ -269,7 +289,7 @@ table.blueTable tfoot .links a{
 
 
 <div style="margin-left: 100px;">
-<h4><b>Build Count of Jobs</b></h4>
+<b>Build Count of Jobs</b>
 </div>
 <table class="blueTable" border="1" >
     <thead>
@@ -292,7 +312,7 @@ table.blueTable tfoot .links a{
     </tbody>
 </table>
 
-<br>
+
 
 
 
