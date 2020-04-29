@@ -20,6 +20,7 @@ table.blueTable td, table.blueTable th {
 }
 table.blueTable tbody td {
   font-size: 13px;
+  word-wrap: break-word;
 }
 table.blueTable tr:nth-child(even) {
   background: #D0E4F5;
@@ -173,9 +174,9 @@ table.blueTable tfoot .links a{
 <br>
 <!--last PROD deployments-->
 <div style="margin-left: 100px;">
-<b>Last Successful PROD Deployments</b>
+<b>Last Successful PROD Deployments</b> <i style="margin-left:250px;font-size:14px;">  *** version is the first 7 characters of last commit - build number</i>
 </div>
-<table class="blueTable" border="1" >
+<table class="blueTable" border="1" style="width:90%;" >
     <thead>
         <tr>
 
@@ -183,48 +184,98 @@ table.blueTable tfoot .links a{
             <th>Run timestamp</th>
             <th>Run date</th>
 			<th>Build No.</th>
-			<th>Revision</th>
+			<th>Last CommitId</th>
+			<th>Version</th>
+			<th>Changed File Set</th>
 
         </tr>
     </thead>
 	
     <tbody>
-        <tr *ngFor="let item of lastPRODDeploy">
-            <td>{{item.jobName}}</td>
-            <td>{{item.lastSuccessfulRun}}</td>
-            <td>{{item.successfulRunDate}}</td>
-			<td>{{item.buildNo}}</td>
-			<td>{{item.revision}}</td>
+        <tr *ngFor="let deploy of lastPRODDeploy">
+            <td>{{deploy.jobName}}</td>
+            <td>{{deploy.lastSuccessfulRun}}</td>
+            <td>{{deploy.successfulRunDate}}</td>
+			<td>{{deploy.buildNo}}</td>
+			<td>{{deploy.lastCommitId}}</td>
+			<td>{{deploy.version}}</td>
+<td>
 
+
+    <span *ngIf="deploy.changeSet !== null">
+
+    <span *ngIf="deploy.changeSet.item !== n">
+	
+<div *ngFor="let itemVar of deploy.changeSet.item">
+<div style="width:450px;">
+<li *ngFor="let pathVar of itemVar.path" style="margin-left:10px;overflow:auto">
+<span style="overflow:auto">{{pathVar.file}}
+<u><i>{{pathVar.editType}}</i></u>
+ </span>
+</li>
+
+</div>
+
+</div>
+</span>
+</span>
+
+
+ </td>
         </tr>
     </tbody>
 </table>
 <br>
 <!--last UAT deployments-->
 <div style="margin-left: 100px;">
-<b>Last Successful UAT Deployments</b>
+<b>Last Successful UAT Deployments</b>      <i style="font-size:14px;">  *** version is the first 7 characters of last commit - build number</i>
 </div>
-<table class="blueTable" border="1" >
+<table class="blueTable" border="1" style="width:90%;">
     <thead>
         <tr>
 
-           <th>Job Name</th>
+            <th>Job Name</th>
             <th>Run timestamp</th>
             <th>Run date</th>
 			<th>Build No.</th>
-			<th>Revision</th>
+			<th>Last CommitId</th>
+			<th>Version</th>
+			<th>Changed File Set</th>
 
         </tr>
     </thead>
 	
     <tbody>
-        <tr *ngFor="let item of lastUATDeploy">
-            <td>{{item.jobName}}</td>
-            <td>{{item.lastSuccessfulRun}}</td>
-            <td>{{item.successfulRunDate}}</td>
-			<td>{{item.buildNo}}</td>
-		    <td>{{item.revision}}</td>
+        <tr *ngFor="let deploy of lastUATDeploy">
+            <td>{{deploy.jobName}}</td>
+            <td>{{deploy.lastSuccessfulRun}}</td>
+            <td>{{deploy.successfulRunDate}}</td>
+			<td>{{deploy.buildNo}}</td>
+			<td>{{deploy.lastCommitId}}</td>
+			<td>{{deploy.version}}</td>
+<td>
 
+
+    <span *ngIf="deploy.changeSet !== null">
+
+    <span *ngIf="deploy.changeSet.item !== n">
+	
+<div *ngFor="let itemVar of deploy.changeSet.item">
+<div style="width:450px;">
+<li *ngFor="let pathVar of itemVar.path" style="margin-left:10px;overflow:auto">
+<span style="overflow:auto">{{pathVar.file}}
+<u><i>{{pathVar.editType}}</i></u>
+ </span>
+</li>
+
+</div>
+
+</div>
+</span>
+</span>
+
+
+ </td>
         </tr>
     </tbody>
 </table>
